@@ -7,7 +7,7 @@ from langchain.tools import tool
 from unstructured.partition.html import partition_html
 from langchain.llms import Ollama
 
-ollama_openhermes = Ollama(model="openhermes", base_url="http://192.168.10.177:11434")
+ollama_openhermes = Ollama(model="openhermes")
 ollama_solar = Ollama(model="Solar")
 
 class BrowserTools():

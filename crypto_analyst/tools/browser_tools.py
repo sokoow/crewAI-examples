@@ -5,7 +5,10 @@ import requests
 from crewai import Agent, Task
 from langchain.tools import tool
 from unstructured.partition.html import partition_html
+from langchain.llms import Ollama
 
+ollama_openhermes = Ollama(model="openhermes", base_url="http://192.168.10.177:11434")
+ollama_solar = Ollama(model="Solar")
 
 class BrowserTools():
 
@@ -27,6 +30,7 @@ class BrowserTools():
           'Do amazing research and summaries based on the content you are working with',
           backstory=
           "You're a Principal Researcher at a big company and you need to do research about a given topic.",
+          llm=ollama_openhermes,
           allow_delegation=False)
       task = Task(
           agent=agent,
